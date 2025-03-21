@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.nav-link {
+    @apply text-lg font-semibold text-white hover:text-yellow-400 transition duration-300;
+  }
+  
+  .mobile-nav-link {
+    @apply text-lg font-semibold text-white hover:text-yellow-400 transition duration-300 block py-2;
+  }
