@@ -44,7 +44,7 @@ export default function Home() {
           <div className="relative w-80 h-80 flex items-center justify-center md:ml-10">
             <div className="absolute w-96 h-96 bg-yellow-400 rounded-full opacity-25 animate-pulse"></div>
             <img
-              src="/profile.png.jpeg"
+              src="/profile.png"
               alt="Rahul's Profile"
               className="w-72 h-72 object-cover rounded-full border-4 border-yellow-400 shadow-2xl"
             />
