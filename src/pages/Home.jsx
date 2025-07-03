@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <section className="h-screen flex items-center justify-center bg-gray-900 text-white px-4 sm:px-10">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -11,31 +15,58 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="order-2 md:order-1"
         >
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl font-extrabold text-yellow-400 text-center md:text-left">
+          <h1 className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-yellow-400 text-center md:text-left mb-4">
             Hi, I'm Rahul 👋
           </h1>
-          <p className="text-base xs:text-lg sm:text-2xl mt-4 text-gray-300 leading-relaxed text-center md:text-left">
-            A passionate <span className="text-yellow-400">Full Stack Developer</span> 🚀
+          <p className="text-lg sm:text-2xl text-gray-300 mb-6 text-center md:text-left">
+            Full Stack Developer passionate about building modern, scalable web applications with React, Node.js, and Tailwind CSS. I love solving real-world problems and learning new technologies.
           </p>
-          <p className="mt-3 text-gray-400 text-sm xs:text-base sm:text-lg text-center md:text-left">
-            I build interactive, responsive, and user-friendly web applications.
-          </p>
-          <div className="mt-8 sm:mt-8 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
             <a
-              href="projects"
+              href="/Rahul_Resume.pdf"
+              download
               className="w-full sm:w-auto text-center bg-yellow-400 text-gray-900 px-6 sm:px-8 py-3 rounded-lg font-bold text-base sm:text-xl shadow-lg hover:bg-yellow-500 transition"
             >
-              View My Work
+              Download Resume
             </a>
-            <a
-              href="contact"
+            <button
+              type="button"
+              onClick={() => navigate("/projects")}
               className="w-full sm:w-auto text-center border-2 border-yellow-400 px-6 sm:px-8 py-3 rounded-lg font-bold text-base sm:text-xl shadow-lg hover:bg-yellow-400 hover:text-gray-900 transition"
             >
-              Hire Me
+              View My Work
+            </button>
+          </div>
+          <div className="flex flex-row items-center justify-center md:justify-start gap-6 mt-4">
+            <a
+              href="https://github.com/PalaniRahulDravid"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:text-white text-3xl transition duration-300"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/palani-rahul-dravid-a89916292/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:text-blue-500 text-3xl transition duration-300"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="mailto:rahuldravidpalani2005@gmail.com"
+              className="text-yellow-400 hover:text-red-400 text-3xl transition duration-300"
+              aria-label="Email"
+            >
+              <FaEnvelope />
             </a>
           </div>
         </motion.div>
 
+        {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

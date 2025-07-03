@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,12 +21,18 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-      setFormData({ name: "", email: "", message: "" });
+      try {
+        await axios.post("http://localhost:5000/api/contact", formData);
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+      } catch (err) {
+        setErrors({ api: "Failed to send message. Please try again later." });
+      }
     }
   };
 
@@ -88,6 +95,9 @@ export default function Contact() {
               ></textarea>
               {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
             </div>
+            {errors.api && (
+              <p className="text-red-500 text-center">{errors.api}</p>
+            )}
             <motion.button
               type="submit"
               className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-bold text-lg hover:from-yellow-500 hover:to-yellow-400 shadow-lg transition cursor-pointer"

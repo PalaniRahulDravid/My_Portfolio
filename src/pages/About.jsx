@@ -59,14 +59,14 @@ export default function About() {
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold text-yellow-400 text-center md:text-left">
             About Me
           </h2>
-          <p className="text-base xs:text-lg sm:text-xl md:text-2xl mt-4 text-gray-300 leading-relaxed text-center md:text-left">
+          <p className="text-lg sm:text-xl md:text-2xl mt-4 text-gray-300 leading-relaxed text-center md:text-left">
             Hi! I'm Rahul, a <span className="text-yellow-400">Full Stack Developer</span> passionate about building beautiful, scalable, and efficient web applications.
           </p>
-          <p className="mt-3 text-gray-400 text-sm xs:text-base sm:text-lg text-center md:text-left">
+          <p className="mt-3 text-gray-400 text-base sm:text-lg text-center md:text-left">
             I love learning new technologies and turning ideas into reality through code. My focus is on writing clean, maintainable, and high-performance applications that make a difference.
           </p>
           <div className="mb-6 mt-6">
-            <h3 className="text-lg xs:text-xl font-semibold text-yellow-400 mb-2 text-center md:text-left">Skills</h3>
+            <h3 className="text-xl font-semibold text-yellow-400 mb-2 text-center md:text-left">Skills</h3>
             <div className="flex flex-wrap gap-2 justify-center md:justify-start">
               {skills.map((skill) => (
                 <span
