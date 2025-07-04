@@ -4,13 +4,9 @@ require("dotenv").config();
 
 const app = express();
 
+// ✅ CORS configuration
 app.use(cors({
-  origin: [
-    "https://my-portfolio-one-alpha-96.vercel.app",
-    "https://my-portfolio-git-main-palani-rahul-dravids-projects.vercel.app",
-    "https://my-portfolio-9bjukk8tu-palani-rahul-dravids-projects.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: "https://my-portfolio-one-alpha-96.vercel.app", // frontend URL
   methods: ["GET", "POST"],
   credentials: true
 }));
@@ -26,5 +22,5 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`✅ Server started on port ${PORT}`);
 });
