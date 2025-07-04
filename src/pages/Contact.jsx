@@ -25,7 +25,7 @@ export default function Contact() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        await axios.post("http://localhost:5000/api/contact", formData);
+        await axios.post("https://my-portfolio-ymn0.onrender.com/api/contact", formData);
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 3000);
         setFormData({ name: "", email: "", message: "" });

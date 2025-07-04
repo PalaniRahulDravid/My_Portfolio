@@ -1,7 +1,3 @@
-const express = require("express");
-const nodemailer = require("nodemailer");
-const router = express.Router();
-
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -9,7 +5,7 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "All fields are required." });
 
   try {
-    const transporter = nodemailer.createTransport({
+    const transporter = require("nodemailer").createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
@@ -29,8 +25,7 @@ router.post("/", async (req, res) => {
 
     res.json({ success: true });
   } catch (err) {
+    console.error("Email send error:", err);
     res.status(500).json({ error: "Failed to send message." });
   }
 });
-
-module.exports = router;

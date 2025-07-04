@@ -3,10 +3,20 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "https://my-portfolio-one-alpha-96.vercel.app",
+    "https://my-portfolio-git-main-palani-rahul-dravids-projects.vercel.app",
+    "https://my-portfolio-9bjukk8tu-palani-rahul-dravids-projects.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 app.use(express.json());
 
-// Import and use the contact route
 const contactRoute = require("./routes/contact");
 app.use("/api/contact", contactRoute);
 
