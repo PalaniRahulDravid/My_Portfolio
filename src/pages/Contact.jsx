@@ -41,9 +41,12 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-900 text-white py-16 px-4 sm:px-10 flex flex-col justify-center">
+    <section
+      className="min-h-screen py-16 px-4 sm:px-6 md:px-10 flex flex-col justify-center"
+      style={{ backgroundColor: "#000000", color: "#F5F5F5" }}
+    >
       <motion.h2
-        className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-yellow-400 text-center mb-8 sm:mb-12"
+        className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-[#FFD700] text-center mb-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -51,56 +54,54 @@ export default function Contact() {
         Contact Me
       </motion.h2>
 
-      <div className="max-w-3xl mx-auto w-full bg-gray-800 p-4 xs:p-6 sm:p-10 rounded-2xl shadow-lg">
+      <div className="max-w-2xl mx-auto w-full bg-[#0f0f0f] p-6 sm:p-10 rounded-2xl shadow-lg">
         {submitted ? (
           <motion.p
-            className="text-xl text-green-400 text-center py-10"
+            className="text-xl text-green-400 text-center py-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
             Thank you! I'll get back to you soon. ✅
           </motion.p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 xs:gap-6">
-            <div className="flex flex-col gap-2">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div>
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="p-4 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-400"
+                className="w-full p-4 rounded-lg bg-[#1c1c1c] text-white outline-none focus:ring-2 focus:ring-[#FFD700] placeholder:text-gray-400"
               />
-              {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-            <div className="flex flex-col gap-2">
+            <div>
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="p-4 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-400"
+                className="w-full p-4 rounded-lg bg-[#1c1c1c] text-white outline-none focus:ring-2 focus:ring-[#FFD700] placeholder:text-gray-400"
               />
-              {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
-            <div className="flex flex-col gap-2">
+            <div>
               <textarea
                 name="message"
                 placeholder="Your Message"
                 rows="5"
                 value={formData.message}
                 onChange={handleChange}
-                className="p-4 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-yellow-400 placeholder:text-gray-400 resize-none"
+                className="w-full p-4 rounded-lg bg-[#1c1c1c] text-white outline-none focus:ring-2 focus:ring-[#FFD700] placeholder:text-gray-400 resize-none"
               ></textarea>
-              {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
-            {errors.api && (
-              <p className="text-red-500 text-center">{errors.api}</p>
-            )}
+            {errors.api && <p className="text-red-500 text-center">{errors.api}</p>}
             <motion.button
               type="submit"
-              className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-bold text-lg hover:from-yellow-500 hover:to-yellow-400 shadow-lg transition cursor-pointer"
+              className="mx-auto sm:mx-0 w-48 text-center bg-[#FFD700] text-black px-6 py-3 rounded-lg font-bold text-lg hover:bg-[#C0B283] shadow-lg transition cursor-pointer"
               whileHover={{ scale: 1.04 }}
             >
               Send Message
@@ -109,12 +110,13 @@ export default function Contact() {
         )}
       </div>
 
+      {/* Social Icons */}
       <div className="mt-10 flex flex-row flex-wrap items-center justify-center gap-6">
         <a
           href="https://github.com/PalaniRahulDravid"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gray-800 p-4 rounded-full shadow-lg text-yellow-400 text-3xl hover:bg-yellow-400 hover:text-gray-900 transition duration-300"
+          className="bg-[#1c1c1c] p-4 rounded-full shadow-lg text-[#FFD700] text-3xl hover:bg-[#FFD700] hover:text-black transition duration-300"
           aria-label="GitHub"
         >
           <FaGithub />
@@ -123,14 +125,14 @@ export default function Contact() {
           href="https://www.linkedin.com/in/palani-rahul-dravid-a89916292/"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gray-800 p-4 rounded-full shadow-lg text-yellow-400 text-3xl hover:bg-blue-500 hover:text-white transition duration-300"
+          className="bg-[#1c1c1c] p-4 rounded-full shadow-lg text-[#FFD700] text-3xl hover:bg-blue-500 hover:text-white transition duration-300"
           aria-label="LinkedIn"
         >
           <FaLinkedin />
         </a>
         <a
           href="mailto:rahuldravidpalani2005@gmail.com"
-          className="bg-gray-800 p-4 rounded-full shadow-lg text-yellow-400 text-3xl hover:bg-red-400 hover:text-white transition duration-300"
+          className="bg-[#1c1c1c] p-4 rounded-full shadow-lg text-[#FFD700] text-3xl hover:bg-red-400 hover:text-white transition duration-300"
           aria-label="Email"
         >
           <FaEnvelope />

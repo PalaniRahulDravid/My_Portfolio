@@ -42,9 +42,12 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="min-h-screen bg-gray-900 text-white py-20 px-4 sm:px-10">
+    <section
+      className="min-h-screen py-20 px-4 sm:px-10"
+      style={{ backgroundColor: "#000000", color: "#F5F5F5" }}
+    >
       <motion.h2
-        className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-yellow-400 text-center mb-8 sm:mb-12"
+        className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-[#FFD700] text-center mb-8 sm:mb-12"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -56,7 +59,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="relative bg-gray-800 p-4 xs:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:border-yellow-400 border-2 border-transparent cursor-pointer flex flex-col"
+            className="relative bg-[#0f0f0f] p-4 xs:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:border-[#FFD700] border-2 border-transparent cursor-pointer flex flex-col"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -68,19 +71,23 @@ export default function Projects() {
                 className="w-full h-40 xs:h-48 object-cover rounded-lg transition duration-500 filter blur-sm hover:blur-none"
               />
             </div>
-            <h3 className="text-2xl xs:text-3xl font-bold text-yellow-400 mt-4 text-center md:text-left">
+
+            <h3 className="text-2xl xs:text-3xl font-bold text-[#FFD700] mt-4 text-center md:text-left">
               {project.title}
             </h3>
-            <p className="text-gray-300 mt-2 text-center md:text-left">{project.description}</p>
-            <div className="mt-4 flex flex-col xs:flex-row gap-3 xs:gap-4 items-center xs:items-start justify-center md:justify-start">
+            <p className="text-[#C0B283] mt-2 text-center md:text-left">
+              {project.description}
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full xs:w-auto inline-flex items-center justify-center space-x-2 text-yellow-400 hover:text-yellow-500 text-base xs:text-lg font-semibold border border-yellow-400 rounded-lg px-4 py-2 transition"
+                className="inline-flex items-center gap-2 text-sm xs:text-base font-medium px-4 py-2 rounded-md border border-[#FFD700] text-[#FFD700] hover:text-[#000000] hover:bg-[#FFD700] transition duration-300"
               >
-                <FaGithub />
-                <span>GitHub</span>
+                <FaGithub className="text-base" />
+                GitHub
               </a>
 
               {project.live && (
@@ -88,10 +95,10 @@ export default function Projects() {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full xs:w-auto inline-flex items-center justify-center space-x-2 text-green-400 hover:text-green-500 text-base xs:text-lg font-semibold border border-green-400 rounded-lg px-4 py-2 transition"
+                  className="inline-flex items-center gap-2 text-sm xs:text-base font-medium px-4 py-2 rounded-md border border-green-400 text-green-400 hover:text-[#000000] hover:bg-green-400 transition duration-300"
                 >
-                  <BiLinkExternal />
-                  <span>Live Demo</span>
+                  <BiLinkExternal className="text-base" />
+                  Live Demo
                 </a>
               )}
             </div>
