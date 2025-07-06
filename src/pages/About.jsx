@@ -1,22 +1,9 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaCode } from "react-icons/fa";
 
-const skills = [
-  "JavaScript",
-  "React",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Tailwind CSS",
-  "HTML",
-  "CSS",
-  "Git",
-  "Figma",
-];
-
 export default function About() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-10" style={{ backgroundColor: "#000000", color: "#F5F5F5" }}>
+    <section className="py-32 flex items-center justify-center px-4 sm:px-10" style={{ backgroundColor: "#000000", color: "#F5F5F5" }}>
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
 
         {/* Profile Image */}
@@ -67,23 +54,8 @@ export default function About() {
             I love learning new technologies and turning ideas into reality through code. My focus is on writing clean, maintainable, and high-performance applications that make a difference.
           </p>
 
-          {/* Skills */}
-          <div className="mb-6 mt-6">
-            <h3 className="text-xl font-semibold text-[#FFD700] mb-2 text-center md:text-left">Skills</h3>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-[#FFD700]/20 text-[#FFD700] px-3 py-1 rounded-full font-semibold text-xs xs:text-sm shadow hover:bg-[#FFD700]/30 transition"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
           {/* Social Icons */}
-          <div className="flex space-x-6 mt-4 justify-center md:justify-start">
+          <div className="flex space-x-6 mt-8 justify-center md:justify-start">
             <a
               href="https://github.com/PalaniRahulDravid"
               target="_blank"

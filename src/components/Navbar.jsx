@@ -11,6 +11,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", id: "home", path: "/home" },
     { name: "About", id: "about", path: "/about" },
+    { name: "Skills", id: "skills", path: "/skills" },
     { name: "Projects", id: "projects", path: "/projects" },
     { name: "Contact", id: "contact", path: "/contact" },
   ];
