@@ -1,13 +1,24 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to projects section if on landing page, else navigate to /projects
+  const handleViewWork = () => {
+    if (location.pathname === "/") {
+      const section = document.getElementById("projects");
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/projects");
+    }
+  };
 
   return (
     <section
-      className="h-screen flex items-center justify-center px-4 sm:px-10"
+      className="py-32 flex items-center justify-center px-4 sm:px-10"
       style={{ backgroundColor: "#000000", color: "#F5F5F5" }}
     >
       <div className="max-w-5xl w-full text-center flex flex-col items-center justify-center">
@@ -50,7 +61,7 @@ export default function Home() {
           </a>
           <button
             type="button"
-            onClick={() => navigate("/projects")}
+            onClick={handleViewWork}
             className="text-center w-44 sm:w-auto border-2 border-[#FFD700] px-4 py-2 sm:px-8 sm:py-3 rounded-lg font-bold text-sm sm:text-xl shadow-lg hover:bg-[#C0B283] hover:text-black transition"
           >
             View My Work
